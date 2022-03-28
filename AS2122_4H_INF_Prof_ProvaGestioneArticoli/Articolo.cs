@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AS2122_4H_INF_Prof_ProvaGestioneArticoli
 {
-    class Articolo
+    public class Articolo
     {
         // TODO: (8) aggiungere attributi privati di Articolo
         // ...

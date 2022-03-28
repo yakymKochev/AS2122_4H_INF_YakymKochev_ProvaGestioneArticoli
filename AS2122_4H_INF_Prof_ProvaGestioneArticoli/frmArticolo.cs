@@ -12,6 +12,7 @@ namespace AS2122_4H_INF_Prof_ProvaGestioneArticoli
 {
     public partial class frmArticolo : Form
     {
+        List<Articolo> articoli;
         DialogResult status = DialogResult.Cancel;
 
         // TODO: (5) aggiungere attributi privati dei dati inseriti nella frmArticoli
@@ -23,13 +24,15 @@ namespace AS2122_4H_INF_Prof_ProvaGestioneArticoli
 
         // TODO: (6) aggiungere property di sola lettura dei dati inseriti nella frmArticoli per l'utilizzo in frmMain
         // ...
+        public int codice { get { return articoli.Count; } }
         public string descrizione { get { return _descrizione; } }
         public string unitaMisura { get { return _unitaMisura; } }
         public double prezzo { get { return _prezzo; } }
 
-        public frmArticolo()
+        public frmArticolo(List<Articolo> _articoli)
         {
             InitializeComponent();
+            articoli = _articoli;
         }
 
         private void btnSalva_Click(object sender, EventArgs e)
@@ -45,7 +48,7 @@ namespace AS2122_4H_INF_Prof_ProvaGestioneArticoli
                 _unitaMisura = cmbUnitaMisura.SelectedText;
                 _prezzo = int.Parse(txtPrezzo.Text);
 
-                var articolo = new Articolo(12231, descrizione, unitaMisura, prezzo);
+                var articolo = new Articolo(codice, descrizione, unitaMisura, prezzo);
 
             } catch(Exception ex)
             {
